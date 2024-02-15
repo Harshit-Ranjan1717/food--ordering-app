@@ -43,21 +43,35 @@ const Body=()=>{
     // 28.6008686 77.0982081
 
   
-    async function getRestaurants(latitude,longitude){
-    // async function getRestaurants(){
-      const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-      // console.log("This is  "+url);
-      // console.log(url);
-      const data=await fetch(url) //auto
-// 
-     // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.610102&lng=85.108383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING") //patna
-      // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.1557428&lng=85.90761239999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING") //darbhanga
+//     async function getRestaurants(latitude,longitude){
+//     // async function getRestaurants(){
+//       const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+//       // console.log("This is  "+url);
+//       // console.log(url);
+//       const data=await fetch(url) //auto
+// // 
+//      // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.610102&lng=85.108383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING") //patna
+//       // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.1557428&lng=85.90761239999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING") //darbhanga
     
-      const json=await data.json();
-      console.log("Patna"+json);
+//       const json=await data.json();
+//       console.log("Patna"+json);
     
-      setAllRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);  
-      setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []); 
+//       setAllRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);  
+//       setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []); 
+//     }
+
+    async function getRestaurants(latitude, longitude) {
+      const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+      const apiUrl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+  
+      try {
+        const response = await fetch(corsAnywhereUrl + apiUrl);
+        const data = await response.json();
+        setAllRestaurants(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);  
+        setFilteredRestaurants(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []); 
+      } catch (error) {
+        console.error(error);
+      }
     }
 
     const online=useOnline();
