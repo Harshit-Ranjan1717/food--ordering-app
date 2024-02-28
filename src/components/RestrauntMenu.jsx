@@ -14,6 +14,9 @@ const RestrauntMenu = () => {
 
   const restaurant = useRestaurant(id); //custom Hooks
 
+
+  
+
   // useEffect(() => {
   //   getRestaurantInfo();
   // }, []);
@@ -52,19 +55,19 @@ const RestrauntMenu = () => {
       <div className="flex justify-between m-5">
         <div>
           <h1 className="text-2xl font-bold">
-            {restaurant?.cards[0]?.card?.card?.info?.name}
+            {restaurant?.cards[2]?.card?.card?.info?.name}
           </h1>
 
-          <h3>{restaurant?.cards[0]?.card?.card?.info?.areaName}</h3>
-          <h3>{restaurant?.cards[0]?.card?.card?.info?.city}</h3>
-          <h3>{restaurant?.cards[0]?.card?.card?.info?.avgRating} Stars</h3>
-          <h3>{restaurant?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3>
+          <h3>{restaurant?.cards[2]?.card?.card?.info?.areaName}</h3>
+          <h3>{restaurant?.cards[2]?.card?.card?.info?.city}</h3>
+          <h3>{restaurant?.cards[2]?.card?.card?.info?.avgRating} Stars</h3>
+          <h3>{restaurant?.cards[2]?.card?.card?.info?.costForTwoMessage}</h3>
         </div>
         <div>
           <img
             src={
               IMG_CDN_URL +
-              restaurant?.cards[0]?.card?.card?.info?.cloudinaryImageId
+              restaurant?.cards[2]?.card?.card?.info?.cloudinaryImageId
             }
             className="w-36 rounded-md shadow-md"
           />
@@ -77,7 +80,7 @@ const RestrauntMenu = () => {
         <h1 className="text-3xl  mt-0 ml-[700px] mb-8">Menu</h1>
         <>
           <ul className="flex flex-col bg-purple-100">
-            {restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map(
+            {restaurant?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map(
               (item) => (
                 <li
                   className="p-3 flex bg-purple-300 m-5 shadow-lg rounded-lg h-[200px]"

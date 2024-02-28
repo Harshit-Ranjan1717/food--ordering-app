@@ -9,8 +9,9 @@ const useRestaurant = (id) => {
   }, []);
 
   async function getRestaurantInfo() {
-    const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-    const data = await fetch(corsAnywhereUrl+FETCH_MENU + id);
+    // const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+    // const data = await fetch(corsAnywhereUrl+FETCH_MENU + id);
+    const data = await fetch(FETCH_MENU + id);
     const json = await data.json();
     setRestaurant(json.data);
   }
