@@ -14,9 +14,6 @@ const RestrauntMenu = () => {
 
   const restaurant = useRestaurant(id); //custom Hooks
 
-
-  
-
   // useEffect(() => {
   //   getRestaurantInfo();
   // }, []);
@@ -80,7 +77,7 @@ const RestrauntMenu = () => {
         <h1 className="text-3xl  mt-0 ml-[700px] mb-8">Menu</h1>
         <>
           <ul className="flex flex-col bg-purple-100">
-            {restaurant?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map(
+            {restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map(
               (item) => (
                 <li
                   className="p-3 flex bg-purple-300 m-5 shadow-lg rounded-lg h-[200px]"
@@ -131,3 +128,16 @@ export default RestrauntMenu;
 // https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=89715;  //both works
 
 // json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
+/*
+
+app.get("/api/name/:userName",(req,res)=>{
+  const userName = req.params.userName;
+  const length=userName.length;
+  return res.send(length);
+})
+
+
+
+
+*/

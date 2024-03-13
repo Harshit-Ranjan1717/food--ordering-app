@@ -8,7 +8,7 @@ import useOnline from "../utils/useOnline";
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState(//);
+  const [searchText, setSearchText] = useState("");
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const online = useOnline();
